@@ -1,0 +1,15 @@
+<!--pages/admin/admin.wxml-->
+<view class="container">
+  <view class="title" style="font-size: 40rpx;margin-bottom: 30rpx;">管理员登录</view>
+  <view class="Input">
+    <view class="userName">
+      <text>用户名：</text>
+      <input type="text" placeholder="admin" bindblur="userName" />
+    </view>
+    <view class="password">
+      <text>密码：</text>
+      <input type="password" placeholder="admin" bindblur="password" />
+    </view>
+  </view>
+  <van-button type="danger" bindtap="login" class="btn">登录</van-button>
+</view>

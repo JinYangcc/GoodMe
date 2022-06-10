@@ -1,0 +1,15 @@
+<!--pages/add/add.wxml-->
+<view class="container">
+  <view class="title">添加商品</view>
+  <view class="Input">
+    <view class="name">
+      <text>奶茶名称：</text>
+      <input type="text" placeholder="奶茶名称" bindblur="name" />
+    </view>
+    <view class="price">
+      <text>奶茶价格：</text>
+      <input type="text" placeholder="奶茶价格" bindblur="price" />
+    </view>
+  </view>
+  <van-button type="danger" bindtap="addtea" class="btn">添加</van-button>
+</view>

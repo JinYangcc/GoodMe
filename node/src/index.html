@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #result {
+        width: 400px;
+        height: 200px;
+        border: 1px solid black;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="result">result</div>
+    <div id="inputDiv">
+      用户名或者奶茶名<input type="text" id="ipt1" /><br />
+      密码或者价钱<input type="text" id="ipt2" />
+    </div>
+    <button>获取tealist</button>
+    <button>获取buyid</button>
+    <button>登录</button>
+    <button>添加</button>
+    <script>
+      const btns = document.querySelectorAll("button");
+      //*获取tealist
+      btns[0].onclick = function () {
+        let xhr = new XMLHttpRequest();
+        xhr.open("get", "http://127.0.0.1:8000/tealist");
+        xhr.send();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            if ((xhr.status < 300) & (xhr.status >= 200)) {
+              document.getElementById("result").innerHTML = xhr.responseText;
+            }
+          }
+        };
+      };
+      //*获取buyid
+      btns[1].onclick = function () {
+        let xhr = new XMLHttpRequest();
+        xhr.open("get", "http://127.0.0.1:8000/buyid");
+        xhr.send();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            if ((xhr.status < 300) & (xhr.status >= 200)) {
+              document.getElementById("result").innerHTML = xhr.responseText;
+            }
+          }
+        };
+      };
+      //*登录
+      btns[2].onclick = function () {
+        let xhr = new XMLHttpRequest();
+        let name = document.getElementById("ipt1").value;
+        let password = document.getElementById("ipt2").value;
+        xhr.open("post", "http://127.0.0.1:8000/login");
+        xhr.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+        xhr.send(`name=${name}&password=${password}`);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            if ((xhr.status < 300) & (xhr.status >= 200)) {
+              document.getElementById("result").innerHTML = xhr.responseText;
+            }
+          }
+        };
+      };
+      //*添加
+      btns[3].onclick = function () {
+        let xhr = new XMLHttpRequest();
+        let name = document.getElementById("ipt1").value;
+        let price = document.getElementById("ipt2").value;
+        xhr.open("post", "http://127.0.0.1:8000/addtea");
+        xhr.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+        xhr.send(`name=${name}&price=${price}`);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            if ((xhr.status < 300) & (xhr.status >= 200)) {
+              document.getElementById("result").innerHTML = xhr.responseText;
+            }
+          }
+        };
+      };
+    </script>
+  </body>
+</html>

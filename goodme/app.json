@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/admin/admin",
+    "pages/add/add",
+    "pages/order/order"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "demo",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "miniprogram_npm/@vant/weapp/button/index",
+    "van-card": "miniprogram_npm/@vant//weapp/card/index",
+    "van-submit-bar": "miniprogram_npm/@vant/weapp/submit-bar/index"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "iconPath": "/static/images/index.png",
+        "selectedIconPath": "/static/images/index_1.png",
+        "pagePath": "pages/index/index",
+        "text": "点单"
+      },
+      
+      {
+        "iconPath": "/static/images/admin.png",
+        "selectedIconPath": "/static/images/admin_1.png",
+        "pagePath": "pages/admin/admin",
+        "text": "管理员"
+      }
+    ]
+  }
+}

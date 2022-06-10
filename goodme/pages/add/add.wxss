@@ -1,0 +1,11 @@
+/* pages/add/add.wxss */
+.title{
+font-size: 40rpx;
+margin-bottom: 30rpx;
+}
+input{
+  border: 1px solid black;
+}
+.btn{
+  margin-top: 50rpx;
+}

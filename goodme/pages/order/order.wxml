@@ -1,0 +1,21 @@
+<!--pages/order/order.wxml-->
+<view>
+  <view class="index">
+您的序号为：{{buyIndex}}
+</view>
+<van-card
+  num="{{item.num}}"
+  price="{{item.price*item.num}}"
+  desc="喝"
+  title="{{item.name}}"
+  thumb="{{ imageURL }}"
+  wx:for="{{orderList}}"
+  wx:key="id"
+/>
+
+<van-submit-bar
+  price="{{ totalPrice*100 }}"
+  button-text="提交订单"
+  bindtap="buy"
+/>
+</view>

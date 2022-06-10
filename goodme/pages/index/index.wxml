@@ -1,0 +1,30 @@
+<!--pages/index/index.wxml-->
+<!-- 主页 -->
+<view>
+  <van-button type="danger" bindtap="toOrder">选择完毕，点单</van-button>
+<van-card
+  num="{{item.num!=0?item.num:0}}"
+  tag="热门"
+  price="{{item.price}}"
+  desc="喝，喝大杯的"
+  title="{{item.name}}"
+  thumb="{{ imageURL }}"
+  wx:for="{{SaleList}}"
+  wx:key="id"
+  data-tea="{{item}}"
+>
+  <view slot="footer">
+    <van-button size="mini" bindtap="chooseNum" data-tea="{{item}}"
+    data-type="jian"
+    >-</van-button>
+    <van-button size="mini" bindtap="chooseNum" data-tea="{{item}}"
+    data-type="jia"
+    
+    >+</van-button>
+  </view>
+</van-card>
+
+</view>
+
+
+

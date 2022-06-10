@@ -1,0 +1,18 @@
+/* pages/admin/admin.wxss */
+.container{
+  
+  padding: 20rpx;
+}
+input{
+  border: 1px solid black;
+}
+
+.userName{
+  width: 500rpx;
+  height: 100rpx;
+}
+.btn{
+  width: 180rpx;
+  height: 40rpx;
+  margin-top: 50rpx;
+}
