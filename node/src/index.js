@@ -72,7 +72,7 @@ app.post("/addtea", urlencodedParser, (request, response) => {
       flag = false;
     }
   }
-  //*如果有相同的
+  //*如果无相同的
   if (flag != false) {
     let addtea = {
       code: "200",
@@ -81,7 +81,7 @@ app.post("/addtea", urlencodedParser, (request, response) => {
     tealist.data.push({ id, name, price });
     response.send(addtea);
   } else {
-    //*如果无相同
+    //*如果有相同
     let addtea = {
       code: "400",
       data: "请勿重复添加",
