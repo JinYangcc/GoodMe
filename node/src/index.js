@@ -51,12 +51,43 @@ app.post("/addtea", urlencodedParser, (request, response) => {
   let name = request.body.name;
   let price = request.body.price;
   id++;
-  tealist.data.push({ id, name, price });
-  let addtea = {
-    code: "200",
-    data: "添加成功",
-  };
-  response.send(addtea);
+  let flag;
+  //*如果name或者price为空
+  if (name == ""||price=='') {
+    let addtea = {
+      code: "400",
+      data: "请勿添加空数据",
+    };
+    response.send(addtea);
+    return;
+  }
+  //*我也不知道为啥有这步 没有就报错   获取data中对象的索引
+  for (let item in tealist.data) {
+    // console.log(item);
+  }
+  for (let item of tealist.data) {
+    flag = true;
+    // console.log(item.name);
+    if (item.name.indexOf(name) === 0) {
+      flag = false;
+    }
+  }
+  //*如果有相同的
+  if (flag != false) {
+    let addtea = {
+      code: "200",
+      data: "添加成功",
+    };
+    tealist.data.push({ id, name, price });
+    response.send(addtea);
+  } else {
+    //*如果无相同
+    let addtea = {
+      code: "400",
+      data: "请勿重复添加",
+    };
+    response.send(addtea);
+  }
 });
 app.listen(8000, () => {
   console.log("8000端口监听中...");
